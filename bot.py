@@ -14,11 +14,15 @@ MEDIA_TYPES = ["photo", "video", "audio", "document", "animation", "sticker"]
 
 @bot.on_message(filters.group & filters.media)
 async def auto_delete_media(client: Client, message: Message):
+    print(f"Got media in {message.chat.id} msg={message.id}", flush=True)
+
     try:
         await asyncio.sleep(int(DELETE_DELAY))
         await message.delete()
+        print(f"Deleted msg {message.id}", flush=True)
     except Exception as e:
-        print(f"Failed to delete message: {e}", flush=True)
+        print(f"Failed to delete message {message.id}: {e}", flush=True)
+
 
 @bot.on_message(filters.command("start") & filters.private)
 async def start_command(client: Client, message: Message):
