@@ -30,17 +30,17 @@ async def start_command(client, message: Message):
 ✦ » ᴄʜᴇᴄᴋ ᴍʏ ᴀʙɪʟɪᴛʏ, ɢɪᴠᴇ ᴍᴇ ᴏɴʟʏ ᴅᴇʟᴇᴛᴇ ᴘᴏᴡᴇʀ ᴀɴᴅ ꜱᴇᴇ ᴍᴀɢɪᴄ ɪɴ ɢʀᴏᴜᴘ.
 
 •──────────────────────•
-❖ 𝐏ᴏᴡᴇʀᴇᴅ ʙʏ ➪ [˹ ʙᴏᴛᴍɪɴᴇ-ᴛᴇᴄʜ ˼](https://t.me/BOTMINE_TECH)
+❖ 𝐏ᴏᴡᴇʀᴇᴅ ʙʏ ➪ [˹ 𝐁ᴏᴛᴢ 𝐄ᴍᴩɪʀᴇ⚡️ ˼](https://t.me/BotzEmpire)
 •──────────────────────•""",
         reply_markup=InlineKeyboardMarkup([
             [InlineKeyboardButton("✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙", url=f"https://t.me/{client.me.username}?startgroup=true")],
             [
-                InlineKeyboardButton("˹ ᴏᴡɴᴇʀ ˼", url="https://t.me/ll_RADHE7_ll"),
-                InlineKeyboardButton("˹ υᴘᴅᴧᴛєs ˼", url="https://t.me/BOTMINE_TECH")
+                InlineKeyboardButton("˹ ᴏᴡɴᴇʀ ˼", url="https://t.me/btw_deva"),
+                InlineKeyboardButton("˹ υᴘᴅᴧᴛєs ˼", url="https://t.me/BotzEmpire")
             ],
             [
-                InlineKeyboardButton("˹ sᴜᴘᴘᴏʀᴛ ˼", url="https://t.me/BOTMINE_SUPPORT"),
-                InlineKeyboardButton("˹ ᴍᴜsɪᴄ ʙᴏᴛ ˼", url="https://t.me/RADHE_MUSIC_ROBOT")
+                InlineKeyboardButton("˹ sᴜᴘᴘᴏʀᴛ ˼", url="https://t.me/Yaaro_kimehfill"),
+                InlineKeyboardButton("˹ ᴍᴜsɪᴄ ʙᴏᴛ ˼", url="https://t.me/DEVA_MUSICBOT")
             ]
         ])
     )
