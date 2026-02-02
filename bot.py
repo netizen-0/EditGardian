@@ -11,6 +11,7 @@ MEDIA_TYPES = ["photo", "video", "audio", "document", "animation", "sticker"]
 
 @bot.on_message(filters.group & filters.media)
 async def auto_delete_media(client: Client, message: Message):
+    # filters.media already ensures media, still keeping safe check
     if any(getattr(message, media_type, None) for media_type in MEDIA_TYPES):
         try:
             await asyncio.sleep(DELETE_DELAY)
@@ -20,6 +21,7 @@ async def auto_delete_media(client: Client, message: Message):
 
 @bot.on_message(filters.command("start") & filters.private)
 async def start_command(client, message: Message):
+    me = await bot.get_me()  # safe in async
     await message.reply_photo(
         photo="https://envs.sh/HcV.jpg",
         caption=f"""**┌────── ˹ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ˼──────•
@@ -33,7 +35,7 @@ async def start_command(client, message: Message):
 ❖ 𝐏ᴏᴡᴇʀᴇᴅ ʙʏ ➪ [˹ 𝐁ᴏᴛᴢ 𝐄ᴍᴩɪʀᴇ⚡️ ˼](https://t.me/BotzEmpire)
 •──────────────────────•""",
         reply_markup=InlineKeyboardMarkup([
-            [InlineKeyboardButton("✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙", url=f"https://t.me/{client.me.username}?startgroup=true")],
+            [InlineKeyboardButton("✙ ʌᴅᴅ ϻє ɪη ʏσυʀ ɢʀσυᴘ ✙", url=f"https://t.me/{me.username}?startgroup=true")],
             [
                 InlineKeyboardButton("˹ ᴏᴡɴᴇʀ ˼", url="https://t.me/btw_deva"),
                 InlineKeyboardButton("˹ υᴘᴅᴧᴛєs ˼", url="https://t.me/BotzEmpire")
@@ -50,15 +52,20 @@ async def handle(request):
 
 async def start_webserver():
     app = web.Application()
-    app.add_routes([web.get('/', handle)])
+    app.add_routes([web.get("/", handle)])
     runner = web.AppRunner(app)
     await runner.setup()
     port = int(os.getenv("PORT", 8000))
-    site = web.TCPSite(runner, '0.0.0.0', port)
+    site = web.TCPSite(runner, "0.0.0.0", port)
     await site.start()
     print(f"Dummy webserver started on port {port}")
 
+async def main():
+    # start webserver + bot together
+    await start_webserver()
+    await bot.start()
+    print("Bot started")
+    await asyncio.Event().wait()  # keep running forever
+
 if __name__ == "__main__":
-    loop = asyncio.get_event_loop()
-    loop.create_task(start_webserver())
-    bot.run()
+    asyncio.run(main())
