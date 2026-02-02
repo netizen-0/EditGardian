@@ -1,7 +1,7 @@
 {
   "name": "MediaGuardian",
   "description": "A Telegram bot to auto-delete media messages after a set time.",
-  "repository": "https://github.com/Botminetech/Mediagrudian",
+  "repository": "https://github.com/netizen-0/EditGardian",
   "keywords": ["telegram", "pyrogram", "media", "autodelete", "bot"],
   "env": {
     "API_ID": {
