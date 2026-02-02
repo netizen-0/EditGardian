@@ -4,7 +4,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from config import API_ID, API_HASH, BOT_TOKEN, DELETE_DELAY
 
 bot = Client(
-    "media_delete_bot",
+    "EditGardiansBot",
     api_id=API_ID,
     api_hash=API_HASH,
     bot_token=BOT_TOKEN
